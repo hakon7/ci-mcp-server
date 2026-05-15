@@ -16,11 +16,11 @@
           "category": "integration-content",
           "keys": [{ "name": "Id", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Id", "Name", "Vendor", "Mode", "Version"]
         },
@@ -33,11 +33,11 @@
             { "name": "Version", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Id", "Name", "PackageId", "Version"],
           "navigationProperties": [
@@ -59,11 +59,11 @@
           "category": "integration-content",
           "keys": [{ "name": "Id", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           },
           "filterableProperties": ["Id", "Name", "Type", "Status", "Version"]
         },
@@ -76,11 +76,11 @@
             { "name": "Version", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Id", "Name", "PackageId"],
           "navigationProperties": [
@@ -100,11 +100,11 @@
             { "name": "Version", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Id", "Name", "PackageId"]
         },
@@ -117,11 +117,11 @@
             { "name": "Version", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Id", "Name", "PackageId"]
         },
@@ -131,11 +131,11 @@
           "category": "integration-content",
           "keys": [{ "name": "Id", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Id", "TagName"]
         },
@@ -145,11 +145,11 @@
           "category": "integration-content",
           "keys": [{ "name": "TaskId", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -158,11 +158,11 @@
           "category": "message-processing-logs",
           "keys": [{ "name": "MessageGuid", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           },
           "filterableProperties": [
             "MessageGuid",
@@ -211,11 +211,11 @@
           "category": "message-processing-logs",
           "keys": [{ "name": "Id", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": false,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": false },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -228,11 +228,11 @@
             { "name": "Component", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": false,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": false },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -246,11 +246,11 @@
             { "name": "Type", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["DataStoreName", "IntegrationFlow", "Type", "Status"]
         },
@@ -263,11 +263,11 @@
             { "name": "IntegrationFlow", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           },
           "filterableProperties": ["VariableName", "IntegrationFlow", "Visibility"]
         },
@@ -277,11 +277,11 @@
           "category": "message-stores",
           "keys": [{ "name": "Name", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -290,11 +290,11 @@
           "category": "message-stores",
           "keys": [{ "name": "Id", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           },
           "filterableProperties": ["Id", "MessageGuid", "FlowName", "Status"]
         },
@@ -304,11 +304,11 @@
           "category": "message-stores",
           "keys": [{ "name": "Key", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -317,11 +317,11 @@
           "category": "message-stores",
           "keys": [{ "name": "Name", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": false,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": false },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -330,11 +330,11 @@
           "category": "log-files",
           "keys": [{ "name": "Name", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           },
           "filterableProperties": ["Name", "Application", "LastModified", "Scope", "NodeScope"]
         },
@@ -344,11 +344,11 @@
           "category": "log-files",
           "keys": [{ "name": "Name", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -357,11 +357,11 @@
           "category": "security-content",
           "keys": [{ "name": "Hexalias", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Hexalias", "Alias", "Type", "Owner"]
         },
@@ -371,11 +371,11 @@
           "category": "security-content",
           "keys": [{ "name": "Hexalias", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -384,11 +384,11 @@
           "category": "security-content",
           "keys": [{ "name": "Hexalias", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": false,
-            "update": false,
-            "delete": false
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
           }
         },
         {
@@ -397,11 +397,11 @@
           "category": "security-content",
           "keys": [{ "name": "Name", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Name", "Kind", "Status"]
         },
@@ -411,11 +411,11 @@
           "category": "security-content",
           "keys": [{ "name": "Name", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Name", "Status"]
         },
@@ -425,11 +425,11 @@
           "category": "security-content",
           "keys": [{ "name": "Name", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           }
         },
         {
@@ -438,11 +438,11 @@
           "category": "security-content",
           "keys": [{ "name": "Id", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           }
         },
         {
@@ -451,11 +451,11 @@
           "category": "security-content",
           "keys": [{ "name": "Id", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "navigationProperties": [
             {
@@ -471,11 +471,11 @@
           "category": "partner-directory",
           "keys": [{ "name": "Pid", "type": "string" }],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           }
         },
         {
@@ -487,11 +487,11 @@
             { "name": "Id", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Pid", "Id"]
         },
@@ -504,11 +504,11 @@
             { "name": "Id", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Pid", "Id"]
         },
@@ -521,11 +521,11 @@
             { "name": "Id", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Pid", "Agency", "Scheme"]
         },
@@ -538,11 +538,11 @@
             { "name": "Id", "type": "string" }
           ],
           "operations": {
-            "list": true,
-            "get": true,
-            "create": true,
-            "update": true,
-            "delete": true
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": true,  "requiredScope": "write" },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
           "filterableProperties": ["Pid", "User"]
         }
