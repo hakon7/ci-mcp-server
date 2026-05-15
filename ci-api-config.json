@@ -10,6 +10,7 @@
       "destination": "CPI_DESTINATION",
       "pathPrefix": "/api/v1",
       "entitySets": [
+
         {
           "entitySet": "IntegrationPackages",
           "description": "SAP CPI integration packages (logical containers that group iFlows, value mappings, and other design-time artifacts)",
@@ -22,8 +23,9 @@
             "update": { "enabled": true,  "requiredScope": "write" },
             "delete": { "enabled": true,  "requiredScope": "admin" }
           },
-          "filterableProperties": ["Id", "Name", "Vendor", "Mode", "Version"]
+          "filterableProperties": ["Id", "Name", "ShortText", "Description", "Version", "Vendor", "Mode", "SupportedPlatform", "CreatedBy", "ModifiedBy", "CreationDate", "ModifiedDate"]
         },
+
         {
           "entitySet": "IntegrationDesigntimeArtifacts",
           "description": "integration flow (iFlow) design-time definitions — the editable integration logic before deployment",
@@ -39,7 +41,7 @@
             "update": { "enabled": true,  "requiredScope": "write" },
             "delete": { "enabled": true,  "requiredScope": "admin" }
           },
-          "filterableProperties": ["Id", "Name", "PackageId", "Version"],
+          "filterableProperties": ["Id", "Name", "PackageId", "Version", "Description"],
           "navigationProperties": [
             {
               "name": "Resources",
@@ -53,6 +55,7 @@
             }
           ]
         },
+
         {
           "entitySet": "IntegrationRuntimeArtifacts",
           "description": "deployed (runtime) integration artifacts — check deployment status, version, and errors for running iFlows",
@@ -63,10 +66,11 @@
             "get":    { "enabled": true,  "requiredScope": "read" },
             "create": { "enabled": false },
             "update": { "enabled": false },
-            "delete": { "enabled": false }
+            "delete": { "enabled": true,  "requiredScope": "admin" }
           },
-          "filterableProperties": ["Id", "Name", "Type", "Status", "Version"]
+          "filterableProperties": ["Id", "Name", "Type", "Status", "Version", "DeployedBy"]
         },
+
         {
           "entitySet": "ValueMappingDesigntimeArtifacts",
           "description": "value mapping design-time artifacts — lookup tables that translate codes/identifiers between sender and receiver systems",
@@ -79,10 +83,10 @@
             "list":   { "enabled": true,  "requiredScope": "read" },
             "get":    { "enabled": true,  "requiredScope": "read" },
             "create": { "enabled": true,  "requiredScope": "write" },
-            "update": { "enabled": true,  "requiredScope": "write" },
+            "update": { "enabled": false },
             "delete": { "enabled": true,  "requiredScope": "admin" }
           },
-          "filterableProperties": ["Id", "Name", "PackageId"],
+          "filterableProperties": ["Id", "Name", "PackageId", "Description"],
           "navigationProperties": [
             {
               "name": "ValMapSchema",
@@ -91,6 +95,7 @@
             }
           ]
         },
+
         {
           "entitySet": "MessageMappingDesigntimeArtifacts",
           "description": "message mapping design-time artifacts — graphical structure-to-structure transformations between source and target message formats",
@@ -106,8 +111,9 @@
             "update": { "enabled": true,  "requiredScope": "write" },
             "delete": { "enabled": true,  "requiredScope": "admin" }
           },
-          "filterableProperties": ["Id", "Name", "PackageId"]
+          "filterableProperties": ["Id", "Name", "PackageId", "Description"]
         },
+
         {
           "entitySet": "ScriptCollectionDesigntimeArtifacts",
           "description": "script collection design-time artifacts — reusable Groovy or JavaScript libraries shared across multiple iFlows",
@@ -123,8 +129,96 @@
             "update": { "enabled": true,  "requiredScope": "write" },
             "delete": { "enabled": true,  "requiredScope": "admin" }
           },
-          "filterableProperties": ["Id", "Name", "PackageId"]
+          "filterableProperties": ["Id", "Name", "PackageId", "Description"]
         },
+
+        {
+          "entitySet": "MessageTypeDesigntimeArtifacts",
+          "description": "message type design-time artifacts — XSD-based message type definitions used in service interfaces",
+          "category": "integration-content",
+          "keys": [
+            { "name": "Id", "type": "string" },
+            { "name": "Version", "type": "string" }
+          ],
+          "operations": {
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
+          },
+          "filterableProperties": ["Id", "Name", "PackageId", "Namespace", "Description"]
+        },
+
+        {
+          "entitySet": "FaultMessageTypeDesigntimeArtifacts",
+          "description": "fault message type design-time artifacts — XSD-based fault/error message type definitions used in service interfaces",
+          "category": "integration-content",
+          "keys": [
+            { "name": "Id", "type": "string" },
+            { "name": "Version", "type": "string" }
+          ],
+          "operations": {
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
+          },
+          "filterableProperties": ["Id", "Name", "PackageId", "Namespace", "Description"]
+        },
+
+        {
+          "entitySet": "DataTypeDesigntimeArtifacts",
+          "description": "data type design-time artifacts — XSD-based data type definitions used in message types and service interfaces",
+          "category": "integration-content",
+          "keys": [
+            { "name": "Id", "type": "string" },
+            { "name": "Version", "type": "string" }
+          ],
+          "operations": {
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
+          },
+          "filterableProperties": ["Id", "Name", "PackageId", "Namespace", "Description"]
+        },
+
+        {
+          "entitySet": "ServiceInterfaceDesigntimeArtifacts",
+          "description": "service interface design-time artifacts — WSDL-based service interface definitions describing operations and message structures",
+          "category": "integration-content",
+          "keys": [
+            { "name": "Id", "type": "string" },
+            { "name": "Version", "type": "string" }
+          ],
+          "operations": {
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": true,  "requiredScope": "read" },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": true,  "requiredScope": "admin" }
+          },
+          "filterableProperties": ["Id", "Name", "PackageId", "Namespace", "Description"]
+        },
+
+        {
+          "entitySet": "ServiceEndpoints",
+          "description": "runtime service endpoints — URLs exposed by deployed iFlows, including protocol, entry points and API definitions",
+          "category": "integration-content",
+          "keys": [{ "name": "Id", "type": "string" }],
+          "operations": {
+            "list":   { "enabled": true,  "requiredScope": "read" },
+            "get":    { "enabled": false },
+            "create": { "enabled": false },
+            "update": { "enabled": false },
+            "delete": { "enabled": false }
+          },
+          "filterableProperties": ["Name", "Id", "Protocol", "Version"]
+        },
+
         {
           "entitySet": "CustomTagConfigurations",
           "description": "custom tag configurations — tenant-level labels used to categorize and filter integration packages",
@@ -139,6 +233,7 @@
           },
           "filterableProperties": ["Id", "TagName"]
         },
+
         {
           "entitySet": "BuildAndDeployStatus",
           "description": "build and deploy task status — track whether an iFlow deployment is queued, running, or finished",
@@ -152,6 +247,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "MessageProcessingLogs",
           "description": "message processing logs — execution history for integration flows, used to debug failed messages or monitor processing status",
@@ -172,8 +268,6 @@
             "IntegrationFlowName",
             "Status",
             "LogLevel",
-            "LogStart",
-            "LogEnd",
             "Sender",
             "Receiver"
           ],
@@ -205,6 +299,7 @@
             }
           ]
         },
+
         {
           "entitySet": "IdMapFromId2s",
           "description": "ID mapping entries — used for exactly-once processing to map source IDs to target IDs and prevent duplicate messages",
@@ -218,6 +313,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "IdempotentRepositoryEntries",
           "description": "idempotent repository entries — duplicate-check records that ensure a message is processed only once",
@@ -235,6 +331,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "DataStoreEntries",
           "description": "data store entries — key-value records persisted by iFlows for cross-message data sharing or temporary storage",
@@ -252,8 +349,9 @@
             "update": { "enabled": false },
             "delete": { "enabled": true,  "requiredScope": "admin" }
           },
-          "filterableProperties": ["DataStoreName", "IntegrationFlow", "Type", "Status"]
+          "filterableProperties": ["DataStoreName", "IntegrationFlow", "Type"]
         },
+
         {
           "entitySet": "Variables",
           "description": "integration flow variables — runtime variables persisted between iFlow executions (e.g. timestamps, counters, delta tokens)",
@@ -271,6 +369,7 @@
           },
           "filterableProperties": ["VariableName", "IntegrationFlow", "Visibility"]
         },
+
         {
           "entitySet": "NumberRanges",
           "description": "number range configurations — auto-incrementing counters used to generate unique sequence numbers in iFlows",
@@ -284,6 +383,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "MessageStoreEntries",
           "description": "message store entries — full messages explicitly persisted via the Persist step for later retrieval or retry",
@@ -296,8 +396,9 @@
             "update": { "enabled": false },
             "delete": { "enabled": false }
           },
-          "filterableProperties": ["Id", "MessageGuid", "FlowName", "Status"]
+          "filterableProperties": ["Id", "MessageGuid"]
         },
+
         {
           "entitySet": "JmsBrokers",
           "description": "JMS broker instances — the messaging broker(s) provisioned on the tenant, including capacity and queue counts",
@@ -311,6 +412,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "JmsResources",
           "description": "JMS queue resources — individual message queues with their current depth, capacity, and consumer status",
@@ -324,6 +426,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "LogFiles",
           "description": "system log files — tenant-level runtime logs (HTTP, default trace, audit) for low-level troubleshooting",
@@ -338,6 +441,7 @@
           },
           "filterableProperties": ["Name", "Application", "LastModified", "Scope", "NodeScope"]
         },
+
         {
           "entitySet": "LogFileArchives",
           "description": "archived log files — compressed historical log bundles available for download",
@@ -351,6 +455,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "KeystoreEntries",
           "description": "keystore entries in the tenant certificate store — SSL/TLS certificates, key pairs, and trusted CA certificates used for secure connections",
@@ -365,6 +470,7 @@
           },
           "filterableProperties": ["Hexalias", "Alias", "Type", "Owner"]
         },
+
         {
           "entitySet": "CertificateResources",
           "description": "certificate chain resources — the full X.509 certificate chains associated with keystore entries, useful for verifying trust paths",
@@ -378,6 +484,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "SSHKeyResources",
           "description": "SSH key resources — public/private key pairs used for SFTP adapter connectivity",
@@ -391,6 +498,7 @@
             "delete": { "enabled": false }
           }
         },
+
         {
           "entitySet": "UserCredentials",
           "description": "user credential artifacts — stored username/password pairs deployed as security material for basic-auth connections",
@@ -405,6 +513,7 @@
           },
           "filterableProperties": ["Name", "Kind", "Status"]
         },
+
         {
           "entitySet": "OAuth2ClientCredentials",
           "description": "OAuth2 client credential artifacts — client ID/secret pairs and token endpoints for OAuth2 client-credentials-grant connections",
@@ -419,6 +528,7 @@
           },
           "filterableProperties": ["Name", "Status"]
         },
+
         {
           "entitySet": "SecureParameters",
           "description": "secure parameter artifacts — encrypted key-value entries referenced in iFlow externalized parameters to store sensitive configuration values",
@@ -432,6 +542,7 @@
             "delete": { "enabled": true,  "requiredScope": "admin" }
           }
         },
+
         {
           "entitySet": "CertificateUserMappings",
           "description": "certificate-to-user mappings — rules that map inbound client certificates to CPI user roles for certificate-based authentication",
@@ -445,6 +556,7 @@
             "delete": { "enabled": true,  "requiredScope": "admin" }
           }
         },
+
         {
           "entitySet": "AccessPolicies",
           "description": "access policies — fine-grained authorization rules that restrict which user roles can access specific integration artifacts",
@@ -465,6 +577,7 @@
             }
           ]
         },
+
         {
           "entitySet": "Partners",
           "description": "partner directory entries — trading partners (e.g. customers, suppliers) whose connection details and parameters drive dynamic iFlow routing",
@@ -478,6 +591,7 @@
             "delete": { "enabled": true,  "requiredScope": "admin" }
           }
         },
+
         {
           "entitySet": "StringParameters",
           "description": "partner-specific string parameters — text configuration values (e.g. endpoint URLs, format codes) keyed by partner ID and parameter ID",
@@ -495,6 +609,7 @@
           },
           "filterableProperties": ["Pid", "Id"]
         },
+
         {
           "entitySet": "BinaryParameters",
           "description": "partner-specific binary parameters — file-based configuration (e.g. XSLT stylesheets, certificates, mapping files) keyed by partner ID and parameter ID",
@@ -512,6 +627,7 @@
           },
           "filterableProperties": ["Pid", "Id"]
         },
+
         {
           "entitySet": "AlternativePartners",
           "description": "alternative partner entries — additional identifiers (agency/scheme pairs like DUNS, GLN) that map to a primary partner ID for flexible partner lookup",
@@ -529,6 +645,7 @@
           },
           "filterableProperties": ["Pid", "Agency", "Scheme"]
         },
+
         {
           "entitySet": "AuthorizedUsers",
           "description": "authorized user entries — users permitted to send messages on behalf of a specific partner, used for sender-side authorization checks",
@@ -546,6 +663,7 @@
           },
           "filterableProperties": ["Pid", "User"]
         }
+
       ]
     }
   ]
