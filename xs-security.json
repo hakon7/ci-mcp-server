@@ -60,21 +60,21 @@
     "role-collections": [
     {
       "name": "MCP Viewer",
-      "description": "View and modify SAP CPI data via MCP server",
+      "description": "View and modify SAP Integration Suite data via MCP server",
       "role-template-references": [
         "$XSAPPNAME.MCPViewer"
       ]
     },
     {
       "name": "MCP Editor",
-      "description": "View and modify SAP CPI data via MCP server",
+      "description": "View and modify SAP Integration Suite data via MCP server",
       "role-template-references": [
         "$XSAPPNAME.MCPEditor"
       ]
     },
     {
       "name": "MCP Administrator",
-      "description": "Full administrative access to SAP CPI via MCP server",
+      "description": "Full administrative access to SAP Integration Suite via MCP server",
       "role-template-references": [
         "$XSAPPNAME.MCPAdmin"
       ]
