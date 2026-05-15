@@ -266,35 +266,43 @@
             "ApplicationMessageId",
             "ApplicationMessageType",
             "IntegrationFlowName",
+            "CustomStatus",
+            "LogStart",
+            "LogEnd",
             "Status",
             "LogLevel",
             "Sender",
             "Receiver"
           ],
-          "navigationProperties": [
+         "navigationProperties": [
             {
-              "name": "MessageProcessingLogAttachments",
-              "description": "payload and header attachments captured during message processing (useful for inspecting actual message content)",
+              "name": "Attachments",
+              "description": "attachments of the message processing log",
               "isCollection": true
             },
             {
-              "name": "ErrorInformations",
-              "description": "detailed error information including exception type and stack trace for failed message executions",
-              "isCollection": true
+              "name": "ErrorInformation",
+              "description": "error information for the message processing log",
+              "isCollection": false
             },
             {
               "name": "AdapterAttributes",
-              "description": "adapter-specific metadata (e.g. HTTP headers, file names, queue names) recorded by the sender/receiver adapter",
+              "description": "adapter-specific metadata recorded during message processing",
               "isCollection": true
             },
             {
               "name": "CustomHeaderProperties",
-              "description": "custom header properties set during iFlow processing via Content Modifier or Script steps",
+              "description": "custom header properties recorded during message processing",
               "isCollection": true
             },
             {
               "name": "MessageStoreEntries",
-              "description": "persisted message store entries linked to this processing log (messages stored via Persist step)",
+              "description": "message store entries linked to this processing log",
+              "isCollection": true
+            },
+            {
+              "name": "Runs",
+              "description": "processing runs and run steps for this message processing log",
               "isCollection": true
             }
           ]
@@ -439,7 +447,7 @@
             "update": { "enabled": false },
             "delete": { "enabled": false }
           },
-          "filterableProperties": ["Name", "Application", "LastModified", "Scope", "NodeScope"]
+          "filterableProperties": ["Name", "Application", "LastModified", "ContentType", "LogFileType"]
         },
 
         {
