@@ -673,6 +673,95 @@
         }
 
       ]
-    }
-  ]
+    },
+
+
+    {
+      "name": "api",
+      "destination": "API_DESTINATION",
+      "pathPrefix": "/api/1.0/AnalyticsService",
+    "entitySet": "ResultsUTC",
+    "description": "API Portal analytics aggregated metrics in UTC timezone — includes API usage, latency, response times, errors and traffic analytics",
+    "category": "api-portal-analytics",
+    "keys": [
+      {
+        "name": "ID",
+        "type": "string"
+      }
+    ],
+    "operations": {
+      "list": {
+        "enabled": true,
+        "requiredScope": "read"
+      },
+      "get": {
+        "enabled": true,
+        "requiredScope": "read"
+      },
+      "create": {
+        "enabled": false
+      },
+      "update": {
+        "enabled": false
+      },
+      "delete": {
+        "enabled": false
+      }
+    },
+    "filterableProperties": [
+      "ID",
+      "ApiProxy",
+      "ProxyBasepath",
+      "RequestUrl",
+      "RequestMethod",
+      "ResponseCode",
+      "DeveloperName",
+      "ApplicationName",
+      "ProductName",
+      "CacheHit",
+      "TargetHost",
+      "TargetUrl",
+      "PlatformName",
+      "AgentsName",
+      "DeviceType",
+      "OsFamilyName",
+      "SumResponseTime",
+      "AvgResponseTime",
+      "MaxResponseTime",
+      "MinResponseTime",
+      "SumErrors",
+      "AvgErrors",
+      "SumTargetError",
+      "AvgTargetError",
+      "SumPolicyError",
+      "AvgPolicyError",
+      "SumTargetResponseTime",
+      "AvgTargetResponseTime",
+      "MaxTargetResponseTime",
+      "MinTargetResponseTime",
+      "SumRequestSize",
+      "AvgRequestSize",
+      "MaxRequestSize",
+      "MinRequestSize",
+      "SumRequestProcessingLatency",
+      "AvgRequestProcessingLatency",
+      "MaxRequestProcessingLatency",
+      "MinRequestProcessingLatency",
+      "SumResponseProcessingLatency",
+      "AvgResponseProcessingLatency",
+      "MaxResponseProcessingLatency",
+      "MinResponseProcessingLatency",
+      "CreatedTime",
+      "PolicyResponseTime",
+      "CallCount",
+      "Year",
+      "Month",
+      "Day",
+      "Week",
+      "Hour",
+      "Minute"
+    ]
+
+      }
+    ]
 }
